@@ -2,6 +2,8 @@
 
 A pixel-art desktop gadget built on ESP32 — featuring a live clock, animated pixel cat, weather display, indoor sensor readings, countdown timer, and todo list. Designed as a gift.
 
+# Credits:
+This project is 100% Vibe Documented and 30% Vibe Coded
 ## Hardware
 
 | Component | Model | Interface |
