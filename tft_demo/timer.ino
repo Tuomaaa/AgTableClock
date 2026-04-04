@@ -83,8 +83,8 @@ void updateTimer() {
 
 void drawTimerScreen() {
   tft.fillRect(0, 175, 155, 65, ST77XX_BLACK);
-  char timeBuf[6];
-  char dataBuf[30];
+  static char timeBuf[6];
+  static char dataBuf[30];
     int pct = 0;
 
   if (timerState == TIMER_RUNNING) {
@@ -119,13 +119,16 @@ void drawTimerScreen() {
     tft.setTextColor(ST77XX_WHITE, ST77XX_BLACK);
   }
   switch (timerState) {
-    case TIMER_DISPLAY: sprintf(dataBuf,"[OK] Setup\n\n[MODE] Back"); break;
-    case TIMER_SETUP:   sprintf(dataBuf,"[UP/DN] Min\n\n[OK] Start"); break;
+    case TIMER_DISPLAY: sprintf(dataBuf,"[OK] Setup\n\n   [MODE] Back"); break;
+    case TIMER_SETUP:   sprintf(dataBuf,"[UP/DN] Min\n\n  [OK] Start"); break;
     case TIMER_RUNNING: sprintf(dataBuf,"[OK] Stop"); break;
     case TIMER_BUZZING: sprintf(dataBuf,"[OK] Dismiss"); break;
   }
   sprintf(timeBuf, "%02d:%02d", secLeft / 60, secLeft % 60);
   tft_display(15, 180, 4, timeBuf);
     //sprintf(dateBuf, "%s, t.tm_year + 1900, t.tm_mon + 1, t.tm_mday);
-    tft_display(15,215,1,dataBuf);
+  tft_display(15,215,1,dataBuf);
 }
+
+
+

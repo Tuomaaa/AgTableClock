@@ -1,11 +1,6 @@
 const uint8_t* cat_pose;
 
-#define CAT_CANVAS_W 138  // 128 + 左右各6px余量
-#define CAT_CANVAS_H 170
-#define CAT_AREA_X 0     // canvas 固定在屏幕的位置
-#define CAT_AREA_Y 0
 
-GFXcanvas16 catCanvas(CAT_CANVAS_W, CAT_CANVAS_H);
 
 void drawCatwithEyes(int cx, int cy, int scale) {
   catCanvas.fillScreen(ST77XX_BLACK);
@@ -45,6 +40,7 @@ void RefreshCat(){
 
 }
 void UpdateCat(){
+  if (currentScreen == SCREEN_TIMER) return;
   switch(CatSTATE){
     case IDLE:
       if(cnt == 100){
